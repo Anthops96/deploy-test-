@@ -14,3 +14,19 @@ containers:
     image: marcohr89/dotnet-helloworld:latest
     ports:
       - containerPort: 80
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-dotnet
+spec:
+  selector:
+    app: helloworld-dotnet
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80  
+  type: NodePort
