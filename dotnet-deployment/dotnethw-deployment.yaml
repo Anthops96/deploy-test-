@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-dotnet-deployment
+  labels:
+    app: helloworld-dotnet
+spec:
+  selector:
+    matchLabels:
+      app: helloworld-dotnet
+  replicas: 2
+containers:
+      - name: helloworld-dotnet
+        image: marcohr89/dotnet-helloworld:latest
+        ports:
+        - containerPort: 80

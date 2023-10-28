@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-laravel-deployment
+  labels:
+    app: helloworld-laravel
+spec:
+  selector:
+    matchLabels:
+      app: helloworld-laravel
+  replicas: 2
+containers:
+      - name: helloworld-laravel
+        image: marcohr89/laravelhw:latest
+        ports:
+        - containerPort: 8000
