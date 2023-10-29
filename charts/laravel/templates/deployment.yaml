@@ -9,6 +9,10 @@ spec:
   selector:
     matchLabels:
       app: helloworld-laravel
+  template:
+    metadata:
+      labels:
+        app: helloworld-dotnet
   replicas: {{ .Values.frontReplicaCount }}
 containers:
       - name: helloworld-laravel

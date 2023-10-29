@@ -8,6 +8,10 @@ spec:
   selector:
     matchLabels:
       app: helloworld-dotnet
+  template:
+    metadata:
+      labels:
+        app: helloworld-dotnet
   replicas: 2
 containers:
   - name: helloworld-dotnet
