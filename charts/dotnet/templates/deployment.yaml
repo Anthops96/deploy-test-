@@ -8,16 +8,17 @@ spec:
   selector:
     matchLabels:
       app: helloworld-dotnet
+  replicas: {{ .Values.frontReplicaCount }}
   template:
     metadata:
       labels:
         app: helloworld-dotnet
-  replicas: {{ .Values.frontReplicaCount }}
-containers:
-  - name: helloworld-dotnet
-    image: marcohr89/dotnet-helloworld:latest
-    ports:
-      - containerPort: 80
+    spec:
+      containers:
+      - name: helloworld-dotnet
+        image: marcohr89/dotnet-helloworld:latest
+        ports:
+        - containerPort: 80
 
 
 ---

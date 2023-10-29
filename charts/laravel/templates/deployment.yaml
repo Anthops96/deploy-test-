@@ -9,12 +9,13 @@ spec:
   selector:
     matchLabels:
       app: helloworld-laravel
+  replicas: {{ .Values.frontReplicaCount }}
   template:
     metadata:
       labels:
-        app: helloworld-dotnet
-  replicas: {{ .Values.frontReplicaCount }}
-containers:
+        app: helloworld-laravel
+    spec:
+      containers:
       - name: helloworld-laravel
         image: marcohr89/laravelhw:latest
         ports:
