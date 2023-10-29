@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: stack
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - app: dotnet
+            env: dev
+          - app: dotnet
+            env: prod
+          - app: dotnet
+            env: test
+          - app: laravel
+            env: dev
+          - app: laravel
+            env: prod
+          - app: laravel
+            env: test
+  template:
+    metadata:
+      name: "stack-{{app}}-{{env}}"
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: appset
+      source:
+        repoURL: https://github.com/MarcoHR89/deploy-test.git
+        targetRevision: HEAD
+        path: charts/{{app}}
+        helm:
+          valueFiles:
+            - values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: stack-{{env}}
