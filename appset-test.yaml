@@ -26,7 +26,7 @@ spec:
       finalizers:
         - resources-finalizer.argocd.argoproj.io
     spec:
-      project: appset
+      project: default
       source:
         repoURL: https://github.com/MarcoHR89/deploy-test.git
         targetRevision: HEAD
