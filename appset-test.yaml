@@ -33,7 +33,7 @@ spec:
         path: charts/{{app}}
         helm:
           valueFiles:
-            - values-{env}.yaml
+            - values-{{env}}.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: stack-{{env}}
