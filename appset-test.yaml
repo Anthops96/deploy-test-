@@ -28,7 +28,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/MarcoHR89/deploy-test.git
+        repoURL: https://github.com/Anthops96/deploy-test-.git
         targetRevision: HEAD
         path: charts/{{app}}
         helm:

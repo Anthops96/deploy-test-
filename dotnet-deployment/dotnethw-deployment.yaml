@@ -13,9 +13,8 @@ spec:
     metadata:
       labels:
         app: helloworld-dotnet
-    spec:
-      containers:
-        - name: helloworld-dotnet
-          image: marcohr89/dotnet-helloworld:latest
-          ports:
-            - containerPort: 80
+containers:
+  - name: helloworld-dotnet
+    image: marcohr89/dotnet-helloworld:latest
+    ports:
+      - containerPort: 80
